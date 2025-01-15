@@ -4,14 +4,14 @@ import verifyToken from "../middleware/verifyToken.js";
 
 const router = express.Router();
 
-router.post("/tasks",verifyToken, createTask);
+router.post("/",verifyToken, createTask);
 
-router.get("/tasks",verifyToken, getTasks);
+router.get("/",verifyToken, getTasks);
 
-router.get("/tasks/:id",verifyToken, getTaskById);
+router.get("/:id",verifyToken, getTaskById);
 
-router.put("/tasks/:id",verifyToken, updateTask);
+router.put("/:id",verifyToken, updateTask);
 
-router.delete("/tasks/:id",verifyToken, deleteTask);
+router.delete("/:id",verifyToken, deleteTask);
 
 export default router;
