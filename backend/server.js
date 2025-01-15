@@ -3,6 +3,7 @@ import dotenv from "dotenv";
 import authRoutes from "./routes/authRoutes.js";
 import connectToMongo from "./db/connectToMongo.js";
 import taskRoutes from "./routes/taskRoutes.js";
+import userRoutes from "./routes/userRoutes.js";
 import cookieParser from "cookie-parser";
 
 const app = express();
@@ -16,6 +17,7 @@ app.use(cookieParser()); //
 
 app.use("/api/auth", authRoutes);
 app.use("/api/tasks", taskRoutes)
+app.use("/api/users", userRoutes);
 
 app.listen(PORT, () => {
     connectToMongo(); // connect to MongoDB database
