@@ -5,6 +5,7 @@ import connectToMongo from "./db/connectToMongo.js";
 import taskRoutes from "./routes/taskRoutes.js";
 import userRoutes from "./routes/userRoutes.js";
 import cookieParser from "cookie-parser";
+import cors from "cors";
 
 const app = express();
 
@@ -13,7 +14,6 @@ const PORT = process.env.PORT || 8001;
 
 app.use(express.json()); // to parse incoming requests with JSON payloads(from req.body)
 app.use(cookieParser()); //
-
 
 app.use("/api/auth", authRoutes);
 app.use("/api/tasks", taskRoutes)
