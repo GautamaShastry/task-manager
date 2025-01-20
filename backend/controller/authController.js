@@ -85,7 +85,7 @@ export const login = async (req, res) => {
 
 export const logout = async (req, res) => {
     try {
-        res.cookie("token", "", { maxAge: 0  }); // delete the token from the response
+        res.cookie("user", "", { maxAge: 0  }); // delete the token from the response
         res.status(200).json({ message: "Logged Out Successfully" }); // send a success message back to the client
     } catch (error) {
         console.log("Error in logout controller: ", error.message);

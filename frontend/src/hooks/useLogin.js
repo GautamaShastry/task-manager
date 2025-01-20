@@ -3,6 +3,7 @@
 import { useState } from "react";
 import useAuth from "../context/AuthContext"
 import toast from "react-hot-toast";
+import { useNavigate } from "react-router-dom";
 
 const useLogin = () => {
     const { setUser } = useAuth();
@@ -31,7 +32,7 @@ const useLogin = () => {
                 throw new Error(data.error);
             }
             localStorage.setItem("user", JSON.stringify(data));
-            setUser(data.user);
+            setUser(data);
         } catch (error) {
             toast.error(error.message);
         } finally {

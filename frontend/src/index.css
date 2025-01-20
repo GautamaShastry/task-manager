@@ -18,8 +18,7 @@
 }
 
 body {
-    @apply min-h-screen flex items-center justify-center;
-    background: linear-gradient(to bottom right, #1e3a8a, #2563eb); /* Modern blue gradient */
+    @apply min-h-screen;
     background-attachment: fixed;
     background-size: cover;
 }
