@@ -19,7 +19,7 @@ const Signup = () => {
     }
 
     return (
-        <div className="relative min-h-screen flex items-center justify-center overflow-hidden ">
+        <div className="relative min-h-screen flex items-center justify-center overflow-hidden bg-purple-200">
             <div className="absolute top-0 left-0 w-72 h-72 bg-gradient-to-br from-blue-500 to-purple-600 rounded-full opacity-50 blur-2xl"></div>
             <div className="absolute bottom-0 right-0 w-96 h-96 bg-gradient-to-br from-purple-500 to-indigo-700 rounded-full opacity-50 blur-2xl"></div>
             {/* SIGNUP FORM */}
