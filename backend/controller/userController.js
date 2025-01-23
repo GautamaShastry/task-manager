@@ -12,6 +12,8 @@ export const getUserProfile = async (req, res) => {
         res.status(200).json({
             _id: user._id,
             fullName: `${user.firstName} ${user.lastName}`,
+            firstName: user.firstName,
+            lastName: user.lastName,
             email: user.email,
             username: user.username
         });
@@ -30,6 +32,7 @@ export const updateUserProfile = async (req, res) => {
         user.firstName = req.body.firstName || user.firstName; // if no new value is provided, keep the existing one
         user.lastName = req.body.lastName || user.lastName;
         user.email = req.body.email || user.email;
+        user.username = req.body.username || user.username;
 
         // update the password
         if(req.body.password) {
@@ -51,6 +54,8 @@ export const updateUserProfile = async (req, res) => {
         res.status(200).json({
             _id: updatedUser._id,
             fullName: `${updatedUser.firstName} ${updatedUser.lastName}`,
+            firstName: updatedUser.firstName,
+            lastName: updatedUser.lastName,
             email: updatedUser.email,
             username: updatedUser.username
         });

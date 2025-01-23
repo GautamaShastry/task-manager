@@ -3,7 +3,7 @@ import User from "../models/User.js";
 
 const verifyToken = async (req, res, next) => {
     try {
-        const token = req.cookies.token;
+        const token = req.cookies.user;
         if (!token) {
             return res.status(401).json({ error: "Access denied. No token provided." });
         }

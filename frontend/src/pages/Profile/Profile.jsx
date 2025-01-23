@@ -23,10 +23,9 @@ const Profile = () => {
 
     useEffect(() => {
         if(profile) {
-            const [firstName, lastName] = profile.fullName.split(" ");
             setFormData({
-                firstName: firstName || "",
-                lastName: lastName || "",
+                firstName: profile.firstName || "",
+                lastName: profile.lastName || "",
                 email: profile.email || "",
                 username: profile.username || "",
                 password: "",
@@ -147,17 +146,17 @@ const Profile = () => {
 
                             <div className='mt-8 flex space-x-4'>
                                 {!editMode && (
-                                    <button className='bg-indigo-600 text-white py-2 px-6 rounded-lg hover:bg-indigo-700 transition' type='button' onClick={handleEditProfile}>Edit</button>
+                                    <button className='bg-indigo-600 text-white py-2 px-6 border-2 border-transparent rounded-lg hover:text-gray-700 hover:border-purple-700 hover:bg-gray-200 transition' type='button' onClick={handleEditProfile}>Edit</button>
                                 )}
                                 {editMode && (
-                                    <button className='bg-indigo-600 text-white py-2 px-6 rounded-lg hover:bg-indigo-700 transition' type='submit'>Save</button>
+                                    <button className='bg-indigo-600 text-white py-2 px-6 border-2 border-transparent rounded-lg hover:border-purple-700 hover:text-gray-700 hover:bg-gray-200 transition' type='submit'>Save</button>
                                 )}
                                 {editMode && (
                                         
-                                        <button className='text-indigo-600 hover:text-indigo-700 transition' onClick={() => setEditMode(false)}>Cancel</button>
+                                        <button className='text-indigo-500 hover:text-purple-700 hover:underline transition' onClick={() => setEditMode(false)}>Cancel</button>
                                 )}
                                 {!editMode && (
-                                    <button className='text-indigo-600 hover:text-indigo-700 transition' onClick={deleteUserProfile}>Delete Account</button>
+                                    <button className='text-indigo-600 hover:text-purple-700 hover:underline transition' onClick={deleteUserProfile}>Delete Account</button>
                                 )}
                             </div>
                         </form>

@@ -1,9 +1,11 @@
 import { useState } from "react"
 import toast from "react-hot-toast";
+import useAuth from "../context/AuthContext";
 
 const useProfile = () => {
     const [loading, setLoading] = useState(false);
     const [profile, setProfile] = useState(null);
+    const { user, setUser } = useAuth();
 
     const getUserProfile = async () => {
         setLoading(true);
@@ -19,6 +21,7 @@ const useProfile = () => {
                 throw new Error(data.error);
             }
             setProfile(data);
+            setUser(data); // update user in context as well
         } catch (error) {
             toast.error(error.message);
         } finally {
@@ -41,6 +44,7 @@ const useProfile = () => {
                 throw new Error(data.error);
             }
             setProfile(data);
+            setUser((prev) => ({...prev, ...data })); // update user in context as well)
             toast.success("Profile updated successfully");
         } catch (error) {
             toast.error(error.message);
@@ -63,6 +67,7 @@ const useProfile = () => {
                 throw new Error(data.error);
             }
             setProfile(null);
+            setUser(null);
             localStorage.removeItem("user");
             toast.success("Profile deleted successfully");
         } catch (error) {
