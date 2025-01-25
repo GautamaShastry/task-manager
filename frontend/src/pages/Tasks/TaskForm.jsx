@@ -33,7 +33,7 @@ const TaskForm = () => {
                     {/* TASK FORM */}
                     <form onSubmit={handleSubmit}>
                         <div className='mb-4'>
-                            <label className='block text-gray-700 font-medium mb-2 text-lg'>Title</label>
+                            <label className='block text-gray-700 font-medium mb-2 text-lg'>Title<span className='text-red-600'>*</span></label>
                             <input 
                                 type="text"
                                 placeholder='Task Title...'
@@ -45,7 +45,7 @@ const TaskForm = () => {
                             />
                         </div>
                         <div className='mb-4'>
-                            <label className='block text-gray-700 font-medium mb-2 text-lg'>Description</label>
+                            <label className='block text-gray-700 font-medium mb-2 text-lg'>Description<span className='text-red-600'>*</span></label>
                             <textarea 
                                 name='description'
                                 placeholder='Task Description...'
@@ -92,7 +92,7 @@ const TaskForm = () => {
                                 <option value='High'>High</option>
                             </select>
                         </div>
-                        <div className='mt-6 flex space-x-4'>
+                        <div className='mt-6 flex space-x-4 items-center justify-center'>
                             <button type='submit' className={`bg-indigo-600 text-white py-2 px-4 rounded-lg hover:text-gray-800 hover:bg-gray-200 border-2 border-transparent hover:border-purple-700 transition`}>
                                 {loading? (
                                     <div className="flex items-center justify-center">

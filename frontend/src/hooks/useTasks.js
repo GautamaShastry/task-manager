@@ -141,7 +141,7 @@ const useTasks = () => {
         }
     }
 
-    return { loading, getTasks, createTask, getTaskById, updateTask, deleteTask, updateTaskStatus };
+    return { loading, getTasks, createTask, getTaskById, updateTask, deleteTask, updateTaskStatus, tasks };
 }
 
 export default useTasks;

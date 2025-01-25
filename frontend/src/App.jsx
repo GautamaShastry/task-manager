@@ -7,6 +7,8 @@ import { Toaster } from 'react-hot-toast';
 import Signup from './pages/Signup/Signup';
 import Profile from './pages/Profile/Profile';
 import TaskForm from './pages/Tasks/TaskForm';
+import TaskList from './pages/Tasks/TaskList';
+import TaskLists from './pages/Tasks/TaskLists';
 
 function App() {
   const { user } = useAuth();
@@ -18,6 +20,7 @@ function App() {
           <Route path='/signup' element={user ? <Navigate to="/" replace /> : <Signup />} />
           <Route path='/profile' element={user ? <Profile /> : <Navigate to="/login" replace/>}></Route>
           <Route path='/create-task' element={user ? <TaskForm /> : <Navigate to="/login" replace />}></Route>
+          <Route path="/my-tasks" element={user ? <TaskLists /> : <Navigate to="/login" replace />} />
         </Routes>
         <Toaster />
       </div>
