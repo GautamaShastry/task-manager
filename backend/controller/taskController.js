@@ -29,7 +29,7 @@ export const createTask = async (req, res) => {
 export const getTasks = async (req, res) => {
     try {
         const userId = req.user._id;
-        const { page = 1, limit = 10 } = req.query;
+        const { page = 1, limit = 12 } = req.query;
 
         const tasks = await Task.find({ userId, deleted: false })
             .sort({ dueDate: 1 }) // sort by due date in ascending order

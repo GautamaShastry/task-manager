@@ -5,9 +5,11 @@ const useTasks = () => {
     const [loading, setLoading] = useState(false);
     const [tasks, setTasks] = useState([]);
     const [task, setTask] = useState(null);
+    const [totalPages, setTotalPages] = useState(0);
+    const [currentPage, setCurrentPage] = useState(1);
     const [searchResults, setSearchResults] = useState([]);
 
-    const getTasks = async (page = 1, limit = 10) => {
+    const getTasks = async (page = 1, limit = 12, query = "") => {
         setLoading(true);
         try {
             const res = await fetch(`/api/tasks?page=${page}&limit=${limit}`, {
@@ -21,6 +23,8 @@ const useTasks = () => {
                 throw new Error(data.error);
             }
             setTasks(data.tasks);
+            setTotalPages(data.totalPages);
+            setCurrentPage(data.currentPage);
         } catch (error) {
             toast.error(error.message);
         } finally {
@@ -141,7 +145,7 @@ const useTasks = () => {
         }
     }
 
-    return { loading, getTasks, createTask, getTaskById, updateTask, deleteTask, updateTaskStatus, tasks };
+    return { loading, getTasks, createTask, getTaskById, updateTask, deleteTask, updateTaskStatus, tasks, totalPages, currentPage, setCurrentPage, setTotalPages };
 }
 
 export default useTasks;
