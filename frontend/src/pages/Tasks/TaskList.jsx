@@ -4,6 +4,7 @@ import { useNavigate, useParams } from 'react-router-dom'
 import useTasks from '../../hooks/useTasks';
 import { FaArrowLeft } from 'react-icons/fa';
 import { FiArrowLeft } from 'react-icons/fi';
+import Loading from '../../components/Loading';
 
 const TaskList = () => {
     const { id } = useParams();
@@ -58,7 +59,9 @@ const TaskList = () => {
             <Navbar />
             <div className="container mx-auto px-6 py-10 cursor-pointer">
                 {loading ? (
-                    <p className="text-center text-gray-600">Loading Task...</p>
+                    <div className='flex items-center justify-center mt-4'>
+                        <Loading />
+                    </div>
                 ) : task ? (
                     <div className="bg-white shadow-md rounded-lg p-6 max-w-2xl mx-auto relative">
                         <button 

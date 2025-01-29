@@ -4,6 +4,8 @@ import Search from "../../components/Search";
 import useTasks from "../../hooks/useTasks";
 import { useNavigate } from "react-router-dom";
 import Loading from "../../components/Loading";
+import { Link } from "react-router-dom";
+import { FaArrowRight } from "react-icons/fa";
 
 const TaskLists = () => {
     const { tasks, getTasks, loading, totalPages, currentPage, setCurrentPage } = useTasks();
@@ -47,7 +49,9 @@ const TaskLists = () => {
                     onSearchResults={handleSearchResults}
                 />
                 {loading ? (
-                    <p><Loading /></p>
+                    <div>
+                        <Loading />
+                    </div>
                 ) : filteredTasks.length > 0 ? (
                     <div>
                         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -109,9 +113,13 @@ const TaskLists = () => {
                         </div>
                     </div>
                 ) : (
-                    <p className="text-center text-gray-600">
+                    <p className="text-center text-gray-600 relative">
                         No tasks found. Try searching or create a new task!
-                        <span></span>
+                        <span className="absolute right top-0 mt-2 mr-2 mx-2 hover:text-red-800 hover:scale-110">
+                            <Link to="/create-task">
+                                <FaArrowRight className="text-xl"/>
+                            </Link>
+                        </span>
                     </p>
                 )}
             </div>
