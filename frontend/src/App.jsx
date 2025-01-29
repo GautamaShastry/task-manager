@@ -21,6 +21,7 @@ function App() {
           <Route path='/profile' element={user ? <Profile /> : <Navigate to="/login" replace/>}></Route>
           <Route path='/create-task' element={user ? <TaskForm /> : <Navigate to="/login" replace />}></Route>
           <Route path="/my-tasks" element={user ? <TaskLists /> : <Navigate to="/login" replace />} />
+          <Route path='/tasks/:id' element={user ? <TaskList /> : <Navigate to="/login" replace/>} />
         </Routes>
         <Toaster />
       </div>
