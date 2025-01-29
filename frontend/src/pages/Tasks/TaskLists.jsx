@@ -3,6 +3,7 @@ import Navbar from "../../components/Navbar";
 import Search from "../../components/Search";
 import useTasks from "../../hooks/useTasks";
 import { useNavigate } from "react-router-dom";
+import Loading from "../../components/Loading";
 
 const TaskLists = () => {
     const { tasks, getTasks, loading, totalPages, currentPage, setCurrentPage } = useTasks();
@@ -46,7 +47,7 @@ const TaskLists = () => {
                     onSearchResults={handleSearchResults}
                 />
                 {loading ? (
-                    <p>Loading tasks...</p>
+                    <p><Loading /></p>
                 ) : filteredTasks.length > 0 ? (
                     <div>
                         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -110,6 +111,7 @@ const TaskLists = () => {
                 ) : (
                     <p className="text-center text-gray-600">
                         No tasks found. Try searching or create a new task!
+                        <span></span>
                     </p>
                 )}
             </div>

@@ -2,6 +2,8 @@ import React, { useEffect, useState } from 'react'
 import Navbar from '../../components/Navbar'
 import { useNavigate, useParams } from 'react-router-dom'
 import useTasks from '../../hooks/useTasks';
+import { FaArrowLeft } from 'react-icons/fa';
+import { FiArrowLeft } from 'react-icons/fi';
 
 const TaskList = () => {
     const { id } = useParams();
@@ -58,7 +60,16 @@ const TaskList = () => {
                 {loading ? (
                     <p className="text-center text-gray-600">Loading Task...</p>
                 ) : task ? (
-                    <div className="bg-white shadow-md rounded-lg p-6 max-w-2xl mx-auto">
+                    <div className="bg-white shadow-md rounded-lg p-6 max-w-2xl mx-auto relative">
+                        <button 
+                            onClick={() => navigate("/my-tasks")}
+                            className="absolute top-4 right-4 text-gray-700 hover:text-purple-700 text-2xl cursor-pointer hover:scale-110 hover:shadow-sm transition"
+                        >
+                            <FiArrowLeft />
+                            <span className='absolute right-0 bg-gray-800 text-white text-xs rounded-lg py-1 px-2 opacity-0 group-hover:opacity-100 transition-opacity'>
+                                Back to My Tasks
+                            </span>
+                        </button>
                         {editMode ? (
                             <div>
                                 <div className='mb-4'>
