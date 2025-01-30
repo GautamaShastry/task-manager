@@ -17,7 +17,8 @@
     "nodemon": "^3.1.9"
   },
   "scripts": {
-    "server": "nodemon backend/server.js"
+    "server": "nodemon backend/server.js",
+    "start": "node server.js"
   },
   "keywords": [],
   "author": "",
