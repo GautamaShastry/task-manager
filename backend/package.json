@@ -4,11 +4,12 @@
     "bcryptjs": "^2.4.3",
     "cookie-parser": "^1.4.7",
     "cors": "^2.8.5",
+    "cross-spawn": "^7.0.5",
     "dotenv": "^16.4.7",
     "express": "^4.21.2",
     "express-validator": "^7.2.1",
     "jsonwebtoken": "^9.0.2",
-    "mongoose": "^8.9.3"
+    "mongoose": "^8.9.5"
   },
   "name": "task-manager",
   "version": "1.0.0",
@@ -17,8 +18,7 @@
     "nodemon": "^3.1.9"
   },
   "scripts": {
-    "server": "nodemon backend/server.js",
-    "start": "node server.js"
+    "server": "nodemon backend/server.js"
   },
   "keywords": [],
   "author": "",
